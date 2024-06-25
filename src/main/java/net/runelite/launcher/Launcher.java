@@ -88,7 +88,7 @@ import org.slf4j.LoggerFactory;
 @Slf4j
 public class Launcher
 {
-	static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".runelite");
+	static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".eldritch");
 	static final File LOGS_DIR = new File(RUNELITE_DIR, "logs");
 	static final File REPO_DIR = new File(RUNELITE_DIR, "repository2");
 	public static final File CRASH_FILES = new File(LOGS_DIR, "jvm_crash_pid_%p.log");
@@ -315,6 +315,7 @@ public class Launcher
 			try
 			{
 				bootstrap = getBootstrap();
+				log.info(bootstrap.toString());
 			}
 			catch (IOException | VerificationException | CertificateException | SignatureException | InvalidKeyException | NoSuchAlgorithmException ex)
 			{
@@ -347,36 +348,13 @@ public class Launcher
 
 			// Determine artifacts for this OS
 			List<Artifact> artifacts = Arrays.stream(bootstrap.getArtifacts())
-				.filter(a ->
-				{
-					if (a.getPlatform() == null)
-					{
-						return true;
-					}
-
-					final String os = System.getProperty("os.name");
-					final String arch = System.getProperty("os.arch");
-					for (Platform platform : a.getPlatform())
-					{
-						if (platform.getName() == null)
-						{
-							continue;
-						}
-
-						OS.OSType platformOs = OS.parseOs(platform.getName());
-						if ((platformOs == OS.OSType.Other ? platform.getName().equals(os) : platformOs == OS.getOs())
-							&& (platform.getArch() == null || platform.getArch().equals(arch)))
-						{
-							return true;
-						}
-					}
-
-					return false;
-				})
 				.collect(Collectors.toList());
 
+			log.info("found x artifact [{}]", artifacts.size());
 			// Clean out old artifacts from the repository
 			clean(artifacts);
+
+			log.info("Reached");
 
 			try
 			{
@@ -639,11 +617,13 @@ public class Launcher
 
 			if (Objects.equals(hash, artifact.getHash()))
 			{
-				log.debug("Hash for {} up to date", artifact.getName());
+				log.info("Hash for {} up to date", artifact.getName());
 				continue;
 			}
 
 			int downloadSize = artifact.getSize();
+
+			log.info(artifact.getSize() + "/" + artifact.getName());
 
 			// See if there is a diff available
 			if (!nodiff && artifact.getDiffs() != null)
@@ -659,6 +639,7 @@ public class Launcher
 					}
 					catch (IOException ex)
 					{
+						ex.printStackTrace();
 						continue;
 					}
 
