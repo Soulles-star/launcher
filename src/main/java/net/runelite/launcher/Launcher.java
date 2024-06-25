@@ -449,16 +449,22 @@ public class Launcher
 	private static Bootstrap getBootstrap() throws IOException, CertificateException, NoSuchAlgorithmException, InvalidKeyException, SignatureException, VerificationException
 	{
 		HttpRequest bootstrapReq = HttpRequest.newBuilder()
-			.uri(URI.create(LauncherProperties.getBootstrap()))
-			.header("User-Agent", USER_AGENT)
-			.GET()
-			.build();
+				.uri(URI.create(LauncherProperties.getBootstrap()))
+				.header("User-Agent", USER_AGENT)
+				.header("Cache-Control", "no-cache, no-store, must-revalidate") // Ensures that no cache version is used
+				.header("Pragma", "no-cache") // For HTTP/1.0 compatibility
+				.header("Expires", "0") // Proxies must forward the request
+				.GET()
+				.build();
 
 		HttpRequest bootstrapSigReq = HttpRequest.newBuilder()
-			.uri(URI.create(LauncherProperties.getBootstrapSig()))
-			.header("User-Agent", USER_AGENT)
-			.GET()
-			.build();
+				.uri(URI.create(LauncherProperties.getBootstrapSig()))
+				.header("User-Agent", USER_AGENT)
+				.header("Cache-Control", "no-cache, no-store, must-revalidate") // Ensures that no cache version is used
+				.header("Pragma", "no-cache") // For HTTP/1.0 compatibility
+				.header("Expires", "0") // Ensures that the response is not cached
+				.GET()
+				.build();
 
 		HttpResponse<byte[]> bootstrapResp, bootstrapSigResp;
 
