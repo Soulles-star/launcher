@@ -91,7 +91,7 @@ public class Launcher
 	static final File LOGS_DIR = new File(RUNELITE_DIR, "logs");
 	static final File REPO_DIR = new File(RUNELITE_DIR, "repository2");
 	public static final File CRASH_FILES = new File(LOGS_DIR, "jvm_crash_pid_%p.log");
-	private static final String USER_AGENT = "RuneLite/" + LauncherProperties.getVersion();
+	private static final String USER_AGENT = "Eldritch/" + LauncherProperties.getVersion();
 	static final String LAUNCHER_EXECUTABLE_NAME_WIN = "Eldritch.exe";
 	static final String LAUNCHER_EXECUTABLE_NAME_OSX = "Eldritch";
 	static boolean nativesLoaded;
