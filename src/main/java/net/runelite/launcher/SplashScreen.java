@@ -69,7 +69,7 @@ public class SplashScreen extends JFrame implements ActionListener
 
 	private SplashScreen() throws IOException
 	{
-		setTitle("RuneLite Launcher");
+		setTitle("Eldritch Launcher");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
