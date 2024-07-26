@@ -30,9 +30,9 @@ unzip win64_jre.zip
 mv jdk-$WIN64_VERSION-jre build/win-x64/jre
 
 echo RuneLite.exe 64bit sha256sum
-sha256sum build/win-x64/RuneLite.exe
+sha256sum build/win-x64/Eldritch.exe
 
-dumpbin //HEADERS build/win-x64/RuneLite.exe
+dumpbin //HEADERS build/win-x64/Eldritch.exe
 
 # We use the filtered iss file
 iscc target/filtered-resources/runelite.iss

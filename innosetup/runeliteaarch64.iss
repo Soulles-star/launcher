@@ -1,10 +1,10 @@
 [Setup]
-AppName=Eldritch Launcher
-AppPublisher=Eldritch
-UninstallDisplayName=Eldritch
+AppName=RuneLite Launcher
+AppPublisher=RuneLite
+UninstallDisplayName=RuneLite
 AppVersion=${project.version}
-AppSupportURL=https://discord.gg/jBPZyrcz
-DefaultDirName={localappdata}\Eldritch
+AppSupportURL=https://runelite.net/
+DefaultDirName={localappdata}\RuneLite
 
 ; ~30 mb for the repo the launcher downloads
 ExtraDiskSpaceRequired=30000000
@@ -13,13 +13,13 @@ PrivilegesRequired=lowest
 
 WizardSmallImageFile=${basedir}/innosetup/runelite_small.bmp
 SetupIconFile=${basedir}/innosetup/runelite.ico
-UninstallDisplayIcon={app}\Eldritch.exe
+UninstallDisplayIcon={app}\RuneLite.exe
 
 Compression=lzma2
 SolidCompression=yes
 
 OutputDir=${basedir}
-OutputBaseFilename=EldritchSetupAArch64
+OutputBaseFilename=RuneLiteSetupAArch64
 
 [Tasks]
 Name: DesktopIcon; Description: "Create a &desktop icon";
@@ -33,14 +33,14 @@ Source: "${basedir}\build\win-aarch64\jre\*"; DestDir: "{app}\jre"; Flags: recur
 
 [Icons]
 ; start menu
-Name: "{userprograms}\RuneLite\RuneLite"; Filename: "{app}\Eldritch.exe"
-Name: "{userprograms}\RuneLite\RuneLite (configure)"; Filename: "{app}\Eldritch.exe"; Parameters: "--configure"
-Name: "{userprograms}\RuneLite\RuneLite (safe mode)"; Filename: "{app}\Eldritch.exe"; Parameters: "--safe-mode"
-Name: "{userdesktop}\RuneLite"; Filename: "{app}\Eldritch.exe"; Tasks: DesktopIcon
+Name: "{userprograms}\RuneLite\RuneLite"; Filename: "{app}\RuneLite.exe"
+Name: "{userprograms}\RuneLite\RuneLite (configure)"; Filename: "{app}\RuneLite.exe"; Parameters: "--configure"
+Name: "{userprograms}\RuneLite\RuneLite (safe mode)"; Filename: "{app}\RuneLite.exe"; Parameters: "--safe-mode"
+Name: "{userdesktop}\RuneLite"; Filename: "{app}\RuneLite.exe"; Tasks: DesktopIcon
 
 [Run]
-Filename: "{app}\Eldritch.exe"; Parameters: "--postinstall"; Flags: nowait
-Filename: "{app}\Eldritch.exe"; Description: "&Open RuneLite"; Flags: postinstall skipifsilent nowait
+Filename: "{app}\RuneLite.exe"; Parameters: "--postinstall"; Flags: nowait
+Filename: "{app}\RuneLite.exe"; Description: "&Open RuneLite"; Flags: postinstall skipifsilent nowait
 
 [InstallDelete]
 ; Delete the old jvm so it doesn't try to load old stuff with the new vm and crash
