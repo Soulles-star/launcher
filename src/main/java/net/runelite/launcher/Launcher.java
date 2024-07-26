@@ -82,7 +82,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.launcher.beans.Artifact;
 import net.runelite.launcher.beans.Bootstrap;
 import net.runelite.launcher.beans.Diff;
-import net.runelite.launcher.beans.Platform;
 import org.slf4j.LoggerFactory;
 
 @Slf4j
