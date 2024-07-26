@@ -2,7 +2,7 @@
 
 set -e
 
-APPBASE="build/macos-x64/RuneLite.app"
+APPBASE="build/macos-x64/Eldritch.app"
 
 build() {
     pushd native
@@ -48,24 +48,24 @@ dmg() {
     # create-dmg exits with an error code due to no code signing, but is still okay
     # note we use Adam-/create-dmg as upstream does not support UDBZ
     create-dmg --format UDBZ $APPBASE . || true
-    mv RuneLite\ *.dmg RuneLite-x64.dmg
+    mv Eldritch\ *.dmg Eldritch-x64.dmg
 
     # dump for CI
-    hdiutil imageinfo RuneLite-x64.dmg
+    hdiutil imageinfo Eldritch-x64.dmg
 
-    if ! hdiutil imageinfo RuneLite-x64.dmg | grep -q "Format: UDBZ" ; then
+    if ! hdiutil imageinfo Eldritch-x64.dmg | grep -q "Format: UDBZ" ; then
         echo "Format of resulting dmg was not UDBZ, make sure your create-dmg has support for --format"
         exit 1
     fi
 
-    if ! hdiutil imageinfo RuneLite-x64.dmg | grep -q "Apple_HFS" ; then
+    if ! hdiutil imageinfo Eldritch-x64.dmg | grep -q "Apple_HFS" ; then
         echo Filesystem of dmg is not Apple_HFS
         exit 1
     fi
 
     # Notarize app
-    if xcrun notarytool submit RuneLite-x64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
-        xcrun stapler staple RuneLite-x64.dmg
+    if xcrun notarytool submit Eldritch-x64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
+        xcrun stapler staple Eldritch-x64.dmg
     fi
 }
 
