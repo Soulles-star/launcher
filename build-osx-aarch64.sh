@@ -24,7 +24,7 @@ build() {
     mkdir -p $APPBASE/Contents/{MacOS,Resources}
 
     cp native/build-aarch64/src/RuneLite $APPBASE/Contents/MacOS/
-    cp target/Eldritch.jar $APPBASE/Contents/Resources/
+    cp target/RuneLite.jar $APPBASE/Contents/Resources/
     cp packr/macos-aarch64-config.json $APPBASE/Contents/Resources/config.json
     cp target/filtered-resources/Info.plist $APPBASE/Contents/
     cp osx/runelite.icns $APPBASE/Contents/Resources/icons.icns

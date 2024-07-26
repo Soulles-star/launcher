@@ -30,8 +30,8 @@
 	<groupId>net.runelite</groupId>
 	<artifactId>launcher</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>Eldritch Launcher</name>
-	<description>Launcher for Eldritch client</description>
+	<name>RuneLite Launcher</name>
+	<description>Launcher for RuneLite client</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,7 +61,7 @@
 		</repository>
 		<repository>
 			<id>runelite</id>
-			<name>Eldritch</name>
+			<name>RuneLite</name>
 			<url>https://repo.runelite.net</url>
 		</repository>
 	</repositories>
@@ -152,7 +152,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>Eldritch</finalName>
+		<finalName>RuneLite</finalName>
 
 		<resources>
 			<resource>

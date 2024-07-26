@@ -25,10 +25,10 @@ echo "$LINUX_AMD64_CHKSUM linux64_jre.tar.gz" | sha256sum -c
 # Note: Host umask may have checked out this directory with g/o permissions blank
 chmod -R u=rwX,go=rX appimage
 # ...ditto for the build process
-chmod 644 target/Eldritch.jar
+chmod 644 target/RuneLite.jar
 
 cp native/build-x64/src/RuneLite build/linux-x64/
-cp target/Eldritch.jar build/linux-x64/
+cp target/RuneLite.jar build/linux-x64/
 cp packr/linux-x64-config.json build/linux-x64/config.json
 cp target/filtered-resources/runelite.desktop build/linux-x64/
 cp appimage/runelite.png build/linux-x64/

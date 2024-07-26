@@ -25,10 +25,10 @@ echo "$LINUX_AARCH64_CHKSUM linux_aarch64_jre.tar.gz" | sha256sum -c
 # Note: Host umask may have checked out this directory with g/o permissions blank
 chmod -R u=rwX,go=rX appimage
 # ...ditto for the build process
-chmod 644 target/Eldritch.jar
+chmod 644 target/RuneLite.jar
 
 cp native/build-aarch64/src/RuneLite build/linux-aarch64/
-cp target/Eldritch.jar build/linux-aarch64/
+cp target/RuneLite.jar build/linux-aarch64/
 cp packr/linux-aarch64-config.json build/linux-aarch64/config.json
 cp target/filtered-resources/runelite.desktop build/linux-aarch64/
 cp appimage/runelite.png build/linux-aarch64/
