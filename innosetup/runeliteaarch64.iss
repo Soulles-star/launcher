@@ -1,10 +1,10 @@
 [Setup]
-AppName=RuneLite Launcher
-AppPublisher=RuneLite
-UninstallDisplayName=RuneLite
+AppName=Eldritch Launcher
+AppPublisher=Eldritch
+UninstallDisplayName=Eldritch
 AppVersion=${project.version}
-AppSupportURL=https://runelite.net/
-DefaultDirName={localappdata}\RuneLite
+AppSupportURL=https://discord.gg/v3emmHDWRV
+DefaultDirName={localappdata}\Eldritch
 
 ; ~30 mb for the repo the launcher downloads
 ExtraDiskSpaceRequired=30000000
