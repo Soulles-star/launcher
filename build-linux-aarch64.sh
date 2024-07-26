@@ -65,4 +65,4 @@ echo "d2624ce8cc2c64ef76ba986166ad67f07110cdbf85112ace4f91611bc634c96a  runtime-
 ARCH=arm_aarch64 ./appimagetool-x86_64.AppImage \
 	--runtime-file runtime-aarch64  \
 	build/linux-aarch64/ \
-	RuneLite-aarch64.AppImage
+	Eldritch-aarch64.AppImage

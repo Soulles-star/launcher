@@ -102,8 +102,8 @@ jobs:
       with:
         name: linux
         path: |
-          RuneLite.AppImage
-          RuneLite-aarch64.AppImage
+          Eldritch.AppImage
+          Eldritch-aarch64.AppImage
         if-no-files-found: error
   macos:
     runs-on: macos-11

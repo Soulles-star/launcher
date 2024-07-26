@@ -57,4 +57,4 @@ echo "df3baf5ca5facbecfc2f3fa6713c29ab9cefa8fd8c1eac5d283b79cab33e4acb  appimage
 
 ./appimagetool-x86_64.AppImage \
 	build/linux-x64/ \
-	RuneLite.AppImage
+	Eldritch.AppImage
