@@ -86,10 +86,10 @@ cp target/RuneLite.jar build/win-aarch64/
 cp packr/win-aarch64-config.json build/win-aarch64/config.json
 cp liblauncher/buildaarch64/Release/launcher_aarch64.dll build/win-aarch64/
 
-echo Eldritch.exe aarch64 sha256sum
-sha256sum build/win-aarch64/Eldritch.exe
+echo RuneLite.exe aarch64 sha256sum
+sha256sum build/win-aarch64/RuneLite.exe
 
-dumpbin //HEADERS build/win-aarch64/Eldritch.exe
+dumpbin //HEADERS build/win-aarch64/RuneLite.exe
 
 # We use the filtered iss file
 iscc target/filtered-resources/runeliteaarch64.iss
