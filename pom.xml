@@ -61,7 +61,7 @@
 		</repository>
 		<repository>
 			<id>runelite</id>
-			<name>RuneLite</name>
+			<name>Eldritch</name>
 			<url>https://repo.runelite.net</url>
 		</repository>
 	</repositories>
@@ -152,7 +152,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>RuneLite</finalName>
+		<finalName>Eldritch</finalName>
 
 		<resources>
 			<resource>

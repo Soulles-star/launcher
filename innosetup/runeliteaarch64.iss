@@ -19,7 +19,7 @@ Compression=lzma2
 SolidCompression=yes
 
 OutputDir=${basedir}
-OutputBaseFilename=RuneLiteSetupAArch64
+OutputBaseFilename=EldritchSetupAArch64
 
 [Tasks]
 Name: DesktopIcon; Description: "Create a &desktop icon";

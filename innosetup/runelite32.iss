@@ -19,7 +19,7 @@ Compression=lzma2
 SolidCompression=yes
 
 OutputDir=${basedir}
-OutputBaseFilename=RuneLiteSetup32
+OutputBaseFilename=EldritchSetup32
 
 [Tasks]
 Name: DesktopIcon; Description: "Create a &desktop icon";
