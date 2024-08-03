@@ -48,7 +48,7 @@ static bool isBlacklistedDll(LPCWSTR lpLibFileName) {
 }
 
 // kernel32
-static HMODULE WINAPI RuneLiteK32LoadLibraryA(LPCSTR lpLibFileName) {
+static HMODULE WINAPI EldritchK32LoadLibraryA(LPCSTR lpLibFileName) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -57,7 +57,7 @@ static HMODULE WINAPI RuneLiteK32LoadLibraryA(LPCSTR lpLibFileName) {
     return K32LoadLibraryA(lpLibFileName);
 }
 
-static HMODULE WINAPI RuneLiteK32LoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
+static HMODULE WINAPI EldritchK32LoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -66,7 +66,7 @@ static HMODULE WINAPI RuneLiteK32LoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFi
     return K32LoadLibraryExA(lpLibFileName, hFile, dwFlags);
 }
 
-static HMODULE WINAPI RuneLiteK32LoadLibraryW(LPCWSTR lpLibFileName) {
+static HMODULE WINAPI EldritchK32LoadLibraryW(LPCWSTR lpLibFileName) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -75,7 +75,7 @@ static HMODULE WINAPI RuneLiteK32LoadLibraryW(LPCWSTR lpLibFileName) {
     return K32LoadLibraryW(lpLibFileName);
 }
 
-static HMODULE WINAPI RuneLiteK32LoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
+static HMODULE WINAPI EldritchK32LoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -85,7 +85,7 @@ static HMODULE WINAPI RuneLiteK32LoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hF
 }
 
 // kernelbase
-static HMODULE WINAPI RuneLiteKBLoadLibraryA(LPCSTR lpLibFileName) {
+static HMODULE WINAPI EldritchKBLoadLibraryA(LPCSTR lpLibFileName) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -93,7 +93,7 @@ static HMODULE WINAPI RuneLiteKBLoadLibraryA(LPCSTR lpLibFileName) {
     return KBLoadLibraryA(lpLibFileName);
 }
 
-static HMODULE WINAPI RuneLiteKBLoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
+static HMODULE WINAPI EldritchKBLoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -101,7 +101,7 @@ static HMODULE WINAPI RuneLiteKBLoadLibraryExA(LPCSTR lpLibFileName, HANDLE hFil
     return KBLoadLibraryExA(lpLibFileName, hFile, dwFlags);
 }
 
-static HMODULE WINAPI RuneLiteKBLoadLibraryW(LPCWSTR lpLibFileName) {
+static HMODULE WINAPI EldritchKBLoadLibraryW(LPCWSTR lpLibFileName) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -109,7 +109,7 @@ static HMODULE WINAPI RuneLiteKBLoadLibraryW(LPCWSTR lpLibFileName) {
     return KBLoadLibraryW(lpLibFileName);
 }
 
-static HMODULE WINAPI RuneLiteKBLoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
+static HMODULE WINAPI EldritchKBLoadLibraryExW(LPCWSTR lpLibFileName, HANDLE hFile, DWORD dwFlags) {
     if (isBlacklistedDll(lpLibFileName)) {
         SetLastError(ERROR_NOT_SUPPORTED);
         return nullptr;
@@ -147,14 +147,14 @@ extern "C" JNIEXPORT void JNICALL Java_net_runelite_launcher_Launcher_setBlackli
     do {                                                                \
         module##name = (decltype(name) *)GetProcAddress(module, #name); \
         if (module##name != nullptr) {                                  \
-            DetourAttach(&module##name, RuneLite##module##name);        \
+            DetourAttach(&module##name, Eldritch##module##name);        \
         }                                                               \
     } while (0)
 
 #define Detach(module, name)                                     \
     do {                                                         \
         if (module##name != nullptr) {                           \
-            DetourDetach(&module##name, RuneLite##module##name); \
+            DetourDetach(&module##name, Eldritch##module##name); \
         }                                                        \
     } while (0)
 

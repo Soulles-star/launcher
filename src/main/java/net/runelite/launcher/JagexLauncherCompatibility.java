@@ -55,9 +55,9 @@ class JagexLauncherCompatibility
 			return false;
 		}
 
-		log.error("RuneLite is running with elevated permissions, but the Jagex launcher is not. Privileged processes " +
+		log.error("Eldritch is running with elevated permissions, but the Jagex launcher is not. Privileged processes " +
 			"can't have environment variables passed to them from unprivileged processes. This will cause you to be " +
-			"unable to login. Either run RuneLite as a regular user, or run the Jagex launcher as an administrator.");
+			"unable to login. Either run Eldritch as a regular user, or run the Jagex launcher as an administrator.");
 
 		// attempt to fix this by removing the compatibility settings
 		String command = current.info().command().orElse(null);
@@ -99,11 +99,11 @@ class JagexLauncherCompatibility
 			.map(JagexLauncherCompatibility::pathFilename)
 			.orElse(Launcher.LAUNCHER_EXECUTABLE_NAME_WIN);
 		var sb = new StringBuilder();
-		sb.append("Running RuneLite as an administrator is incompatible with the Jagex launcher.");
+		sb.append("Running Eldritch as an administrator is incompatible with the Jagex launcher.");
 		if (patched)
 		{
-			sb.append(" RuneLite has attempted to fix this problem by changing the compatibility settings of ").append(command).append('.');
-			sb.append(" Try running RuneLite again.");
+			sb.append(" Eldritch has attempted to fix this problem by changing the compatibility settings of ").append(command).append('.');
+			sb.append(" Try running Eldritch again.");
 		}
 		sb.append(" If the problem persists, either run the Jagex launcher as administrator, or change the ")
 			.append(command).append(" compatibility settings to not run as administrator.");

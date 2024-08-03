@@ -2,7 +2,7 @@
 
 set -e
 
-APPBASE="build/macos-aarch64/RuneLite.app"
+APPBASE="build/macos-aarch64/Eldritch.app"
 
 build() {
     pushd native
@@ -23,7 +23,7 @@ build() {
 
     mkdir -p $APPBASE/Contents/{MacOS,Resources}
 
-    cp native/build-aarch64/src/RuneLite $APPBASE/Contents/MacOS/
+    cp native/build-aarch64/src/Eldritch $APPBASE/Contents/MacOS/
     cp target/Eldritch.jar $APPBASE/Contents/Resources/
     cp packr/macos-aarch64-config.json $APPBASE/Contents/Resources/config.json
     cp target/filtered-resources/Info.plist $APPBASE/Contents/
@@ -33,12 +33,12 @@ build() {
     mkdir $APPBASE/Contents/Resources/jre
     mv jdk-$MAC_AARCH64_VERSION-jre/Contents/Home/* $APPBASE/Contents/Resources/jre
 
-    echo Setting world execute permissions on RuneLite
+    echo Setting world execute permissions on Eldritch
     pushd $APPBASE
-    chmod g+x,o+x Contents/MacOS/RuneLite
+    chmod g+x,o+x Contents/MacOS/Eldritch
     popd
 
-    otool -l $APPBASE/Contents/MacOS/RuneLite
+    otool -l $APPBASE/Contents/MacOS/Eldritch
 }
 
 dmg() {
@@ -47,24 +47,24 @@ dmg() {
 
     # create-dmg exits with an error code due to no code signing, but is still okay
     create-dmg $APPBASE . || true
-    mv RuneLite\ *.dmg RuneLite-aarch64.dmg
+    mv Eldritch\ *.dmg Eldritch-aarch64.dmg
 
     # dump for CI
-    hdiutil imageinfo RuneLite-aarch64.dmg
+    hdiutil imageinfo Eldritch-aarch64.dmg
 
-    if ! hdiutil imageinfo RuneLite-aarch64.dmg | grep -q "Format: ULFO" ; then
+    if ! hdiutil imageinfo Eldritch-aarch64.dmg | grep -q "Format: ULFO" ; then
         echo Format of dmg is not ULFO
         exit 1
     fi
 
-    if ! hdiutil imageinfo RuneLite-aarch64.dmg | grep -q "Apple_HFS" ; then
+    if ! hdiutil imageinfo Eldritch-aarch64.dmg | grep -q "Apple_HFS" ; then
         echo Filesystem of dmg is not Apple_HFS
         exit 1
     fi
 
     # Notarize app
-    if xcrun notarytool submit RuneLite-aarch64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
-        xcrun stapler staple RuneLite-aarch64.dmg
+    if xcrun notarytool submit Eldritch-aarch64.dmg --wait --keychain-profile "AC_PASSWORD" ; then
+        xcrun stapler staple Eldritch-aarch64.dmg
     fi
 }
 

@@ -64,7 +64,7 @@ import org.w3c.dom.NodeList;
 @Slf4j
 class Updater
 {
-	private static final String RUNELITE_APP = "/Applications/RuneLite.app";
+	private static final String RUNELITE_APP = "/Applications/Eldritch.app";
 
 	static void update(Bootstrap bootstrap, LauncherSettings launcherSettings, String[] args)
 	{
@@ -91,8 +91,8 @@ class Updater
 		Path path = Paths.get(command.get());
 
 		// on macOS packr changes the cwd to the resource directory prior to launching the JVM,
-		// causing current.info().command() to return /Applications/RuneLite.app/Contents/Resources/./RuneLite
-		// despite the executable really being at /Applications/RuneLite.app/Contents/MacOS/RuneLite
+		// causing current.info().command() to return /Applications/Eldritch.app/Contents/Resources/./Eldritch
+		// despite the executable really being at /Applications/Eldritch.app/Contents/MacOS/Eldritch
 		path = path.normalize()
 			.resolveSibling(Path.of("..", "MacOS", path.getFileName().toString()))
 			.normalize();
@@ -210,7 +210,7 @@ class Updater
 			delete(Path.of(RUNELITE_APP));
 
 			log.debug("Copying new install from {}", mountPoint);
-			copy(Path.of(mountPoint, "RuneLite.app"), Path.of(RUNELITE_APP));
+			copy(Path.of(mountPoint, "Eldritch.app"), Path.of(RUNELITE_APP));
 
 			log.debug("Unmounting dmg");
 			pb = new ProcessBuilder(
@@ -343,7 +343,7 @@ class Updater
 			return;
 		}
 
-		// the installer kills running RuneLite processes, so check that there are no others running
+		// the installer kills running Eldritch processes, so check that there are no others running
 		List<ProcessHandle> allProcesses = ProcessHandle.allProcesses().collect(Collectors.toList());
 		for (ProcessHandle ph : allProcesses)
 		{

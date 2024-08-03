@@ -59,15 +59,15 @@ class FilesystemPermissions
 		// always when elevated, so attempt to fix the ACLs first.
 		if (elevated)
 		{
-			log.info("RuneLite is running as an administrator. This is not recommended because it can cause the files " +
-					"RuneLite writes to {} to have more strict permissions than would otherwise be required.",
+			log.info("Eldritch is running as an administrator. This is not recommended because it can cause the files " +
+					"Eldritch writes to {} to have more strict permissions than would otherwise be required.",
 				RUNELITE_DIR);
 
 			try
 			{
 				final var sid = Launcher.getUserSID();
-				log.info("RuneLite is updating the ACLs of the files in {} to be: NT AUTHORITY\\SYSTEM, BUILTIN\\Administrators, " +
-						"and {} (your user SID). To avoid this, don't run RuneLite with elevated permissions.",
+				log.info("Eldritch is updating the ACLs of the files in {} to be: NT AUTHORITY\\SYSTEM, BUILTIN\\Administrators, " +
+						"and {} (your user SID). To avoid this, don't run Eldritch with elevated permissions.",
 					RUNELITE_DIR, sid);
 
 				// Files.walk is depth-first, which doesn't work if the permissions on the root don't allow traversal.
@@ -92,12 +92,12 @@ class FilesystemPermissions
 				String message;
 				if (elevated)
 				{
-					message = "Unable to create RuneLite directory " + RUNELITE_DIR + " while elevated. Check your filesystem permissions are correct.";
+					message = "Unable to create Eldritch directory " + RUNELITE_DIR + " while elevated. Check your filesystem permissions are correct.";
 				}
 				else
 				{
-					message = "Unable to create RuneLite directory " + RUNELITE_DIR + ". Check your filesystem permissions are correct. If you rerun RuneLite" +
-						" as an administrator, RuneLite will attempt to create the directory again and fix its permissions.";
+					message = "Unable to create Eldritch directory " + RUNELITE_DIR + ". Check your filesystem permissions are correct. If you rerun Eldritch" +
+						" as an administrator, Eldritch will attempt to create the directory again and fix its permissions.";
 				}
 				SwingUtilities.invokeLater(() ->
 				{
@@ -143,7 +143,7 @@ class FilesystemPermissions
 			else
 			{
 				message = "The file permissions of " + RUNELITE_DIR + ", or a file within it, is not correct. Check the logs for more details." +
-					" If you rerun RuneLite as an administrator, RuneLite will attempt to fix the file permissions.";
+					" If you rerun Eldritch as an administrator, Eldritch will attempt to fix the file permissions.";
 			}
 			SwingUtilities.invokeLater(() ->
 			{

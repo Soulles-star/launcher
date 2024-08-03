@@ -65,7 +65,7 @@ public class ConfigurationFrame extends JFrame
 
 	private ConfigurationFrame(LauncherSettings settings)
 	{
-		setTitle("RuneLite Launcher Configuration");
+		setTitle("Eldritch Launcher Configuration");
 
 		BufferedImage iconImage;
 		try (var in = ConfigurationFrame.class.getResourceAsStream("runelite_128.png"))

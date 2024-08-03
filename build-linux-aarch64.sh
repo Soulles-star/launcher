@@ -27,7 +27,7 @@ chmod -R u=rwX,go=rX appimage
 # ...ditto for the build process
 chmod 644 target/Eldritch.jar
 
-cp native/build-aarch64/src/RuneLite build/linux-aarch64/
+cp native/build-aarch64/src/Eldritch build/linux-aarch64/
 cp target/Eldritch.jar build/linux-aarch64/
 cp packr/linux-aarch64-config.json build/linux-aarch64/config.json
 cp target/filtered-resources/runelite.desktop build/linux-aarch64/
@@ -40,11 +40,11 @@ pushd build/linux-aarch64
 mkdir -p jre/lib/amd64/server/
 ln -s ../../server/libjvm.so jre/lib/amd64/server/ # packr looks for libjvm at this hardcoded path
 
-# Symlink AppRun -> RuneLite
-ln -s RuneLite AppRun
+# Symlink AppRun -> Eldritch
+ln -s Eldritch AppRun
 
-# Ensure RuneLite is executable to all users
-chmod 755 RuneLite
+# Ensure Eldritch is executable to all users
+chmod 755 Eldritch
 popd
 
 if ! [ -f appimagetool-x86_64.AppImage ] ; then
