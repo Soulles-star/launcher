@@ -291,7 +291,7 @@ class Updater
 
 		try
 		{
-			installLocation = regQueryString("Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\RuneLite Launcher_is1", "InstallLocation");
+			installLocation = regQueryString("Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Eldritch Launcher_is1", "InstallLocation");
 		}
 		catch (UnsatisfiedLinkError | RuntimeException ex)
 		{
