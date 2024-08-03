@@ -49,7 +49,7 @@ Type: filesandordirs; Name: "{app}\jre"
 Type: files; Name: "{userprograms}\Eldritch.lnk"
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{%USERPROFILE}\.runelite\repository2"
+Type: filesandordirs; Name: "{%USERPROFILE}\.eldritch\repository2"
 ; includes install_id, settings, etc
 Type: filesandordirs; Name: "{app}"
 
