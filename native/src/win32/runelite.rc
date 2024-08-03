@@ -12,7 +12,7 @@ BEGIN
         BLOCK "040904B0"
         BEGIN
             VALUE "FileDescription",  "RuneLite"
-            VALUE "OriginalFilename", "Eldritch.exe"
+            VALUE "OriginalFilename", "RuneLite.exe"
             VALUE "ProductName",      "RuneLite Launcher"
         END
     END
