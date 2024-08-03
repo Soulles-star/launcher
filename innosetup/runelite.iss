@@ -40,7 +40,7 @@ Name: "{userdesktop}\Eldritch"; Filename: "{app}\Eldritch.exe"; Tasks: DesktopIc
 
 [Run]
 Filename: "{app}\Eldritch.exe"; Parameters: "--postinstall"; Flags: nowait
-Filename: "{app}\Eldritch.exe"; Description: "&Open RuneLite"; Flags: postinstall skipifsilent nowait
+Filename: "{app}\Eldritch.exe"; Description: "&Open Eldritch"; Flags: postinstall skipifsilent nowait
 
 [InstallDelete]
 ; Delete the old jvm so it doesn't try to load old stuff with the new vm and crash
