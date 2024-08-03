@@ -82,7 +82,7 @@ jlink \
   --add-modules jdk.zipfs
 
 cp native/build-aarch64/src/Release/Eldritch.exe build/win-aarch64/
-cp target/RuneLite.jar build/win-aarch64/
+cp target/Eldritch.jar build/win-aarch64/
 cp packr/win-aarch64-config.json build/win-aarch64/config.json
 cp liblauncher/buildaarch64/Release/launcher_aarch64.dll build/win-aarch64/
 

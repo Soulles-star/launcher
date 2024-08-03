@@ -96,7 +96,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: jar
-        path: target/RuneLite.jar
+        path: target/Eldritch.jar
         if-no-files-found: error
     - uses: actions/upload-artifact@v4
       with:

@@ -22,7 +22,7 @@ fi
 echo "$WIN32_CHKSUM win32_jre.zip" | sha256sum -c
 
 cp native/build-x86/src/Release/Eldritch.exe build/win-x86/
-cp target/RuneLite.jar build/win-x86/
+cp target/Eldritch.jar build/win-x86/
 cp packr/win-x86-config.json build/win-x86/config.json
 cp liblauncher/build32/Release/launcher_x86.dll build/win-x86/
 

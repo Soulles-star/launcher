@@ -1,6 +1,6 @@
 {
   "classPath": [
-    "RuneLite.jar"
+    "Eldritch.jar"
   ],
   "mainClass": "net.runelite.launcher.Launcher",
   "vmArgs": [
