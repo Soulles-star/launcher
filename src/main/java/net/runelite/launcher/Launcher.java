@@ -488,17 +488,17 @@ public class Launcher
 		}
 
 		final byte[] bytes = bootstrapResp.body();
-//		final byte[] signature = bootstrapSigResp.body();
-//
-//		Certificate certificate = getCertificate();
-//		Signature s = Signature.getInstance("SHA256withRSA");
-//		s.initVerify(certificate);
-//		s.update(bytes);
-//
-//		if (!s.verify(signature))
-//		{
-//			throw new VerificationException("Unable to verify bootstrap signature");
-//		}
+		final byte[] signature = bootstrapSigResp.body();
+
+		Certificate certificate = getCertificate();
+		Signature s = Signature.getInstance("SHA256withRSA");
+		s.initVerify(certificate);
+		s.update(bytes);
+
+		if (!s.verify(signature))
+		{
+			throw new VerificationException("Unable to verify bootstrap signature");
+		}
 
 		Gson g = new Gson();
 		return g.fromJson(new InputStreamReader(new ByteArrayInputStream(bytes)), Bootstrap.class);
