@@ -87,7 +87,7 @@ import org.slf4j.LoggerFactory;
 @Slf4j
 public class Launcher
 {
-	static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".eldritch");
+	static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".eldritch1");
 	static final File LOGS_DIR = new File(RUNELITE_DIR, "logs");
 	static final File REPO_DIR = new File(RUNELITE_DIR, "repository2");
 	public static final File CRASH_FILES = new File(LOGS_DIR, "jvm_crash_pid_%p.log");
