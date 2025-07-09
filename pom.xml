@@ -182,6 +182,8 @@
 						<arg>-h</arg>
 						<arg>target/headers</arg>
 					</compilerArgs>
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 				<executions>
 					<execution>
