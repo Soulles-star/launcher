@@ -67,7 +67,7 @@ jobs:
           EldritchSetupAArch64.exe
         if-no-files-found: error
   linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - run: sudo apt update
     - run: sudo apt install -y gcc-9-aarch64-linux-gnu g++-9-aarch64-linux-gnu
