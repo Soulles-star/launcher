@@ -1,0 +1,11 @@
+{
+  "classPath": [
+    "Eldritch.jar"
+  ],
+  "mainClass": "net.runelite.launcher.Launcher",
+  "vmArgs": [
+    "-Xmx1024m",
+    "-Xss2m",
+    "-XX:CompileThreshold=1500"
+  ]
+}
