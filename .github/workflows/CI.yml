@@ -108,7 +108,10 @@ jobs:
           if-no-files-found: error
 
   macos:
-    runs-on: macos-13
+    # macos-13 runners were retired by GitHub (late 2025) — jobs requesting the
+    # label queue forever. macos-15-intel is the free x64 successor; the x64
+    # host cross-builds the aarch64 dmg the same way macos-13 did.
+    runs-on: macos-15-intel
     steps:
       - uses: actions/setup-python@v5
         with:
